@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYD Admin Dashboard</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/fontawesome-all.min.css">
+    <!-- CONFIRMED CORRECT PATH -->
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+
+    <div class="admin-wrapper">
+        <!-- ===== Sidebar ===== -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="img/byd-logo.png" alt="BYD Logo">
+                <span>BYD Admin</span>
+            </div>
+
+            <div class="sidebar-user">
+                <img src="img/admin.png" alt="User Avatar" class="avatar">
+                <div class="user-info">
+                    <span class="username">Admin</span>
+                    <span class="status">Online</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-heading">General</p>
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="index.html"><i class="fas fa-globe"></i> View Public Site</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- ===== Main Content ===== -->
+        <div class="main-content">
+            <header class="main-header">
+                <div class="header-title">
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="header-user-profile">
+                    <div class="dropdown">
+                         <button class="btn dropdown-toggle" type="button" id="userDropdown">
+                             <img src="img/admin.png" alt="User Avatar" class="avatar-sm">
+                             <span class="username">Admin</span>
+                         </button>
+                         <div class="dropdown-menu" id="user-menu">
+                            <button id="logout-btn" class="dropdown-item">Logout</button>
+                         </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-body">
+                <!-- Add/Edit Form Card -->
+                <div class="content-card">
+                    <h3 id="form-title">Add New Car Model</h3>
+                    <form id="car-form">
+                        <input type="hidden" id="car-id">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="car-name">Model Name</label>
+                                    <input type="text" id="car-name" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="car-type">Vehicle Type (e.g., Sedan, SUV)</label>
+                                    <input type="text" id="car-type" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                             <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="car-year">Year</label>
+                                    <input type="number" id="car-year" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="car-image">Image URL (e.g., img/car1.jpg)</label>
+                                    <input type="text" id="car-image" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="car-description">Description</label>
+                            <textarea id="car-description" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">Save Model</button>
+                            <button type="button" id="cancel-edit-btn" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Management Table Card -->
+                <div class="content-card">
+                    <h3>Manage Existing Models</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Model Name</th>
+                                    <th>Year</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-car-table-body">
+                                <!-- Rows will be generated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- NEW: News Management Section -->
+                <div class="content-card">
+                    <h3 id="news-section-title">Manage News Articles</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-news-table-body">
+                                <!-- News rows will be generated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3 id="news-form-title">Add New Article</h3>
+                    <form id="news-form">
+                        <input type="hidden" id="news-id">
+                        <div class="form-group">
+                            <label for="news-title">Article Title</label>
+                            <input type="text" id="news-title" class="form-control" required>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="news-image">Image URL</label>
+                                    <input type="text" id="news-image" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="news-author">Author</label>
+                                    <input type="text" id="news-author" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="news-content">Content</label>
+                            <textarea id="news-content" class="form-control" rows="6" required></textarea>
+                        </div>
+                        <div class="form-buttons mt-3">
+                            <button type="submit" class="btn btn-primary">Save Article</button>
+                            <button type="button" id="cancel-news-edit-btn" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

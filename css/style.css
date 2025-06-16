@@ -1,0 +1,701 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* --- General Body and Theming --- */
+body {
+    background-color: #0d1117; /* Very dark blue, almost black */
+    color: #c9d1d9; /* Light grey for text */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* --- Header --- */
+header {
+    position: absolute; /* Sits on top of the hero */
+    width: 100%;
+    z-index: 10;
+    padding: 1rem 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+#main-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+#main-nav span {
+    font-weight: 500;
+}
+#main-nav .btn {
+    padding: 0.4rem 1.2rem;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+body.page-compare header,
+body.page-profile header,
+body.page-admin header,
+body.page-login header {
+    position: static; /* Not absolute on top of content */
+    background: #0d1117; /* Solid dark background */
+    border-bottom: 1px solid #30363d;
+}
+
+/* --- NEW Hero Section --- */
+.hero {
+    height: 60vh;
+    background-image: url('../img/byd-factory.jpg'); /* Use a cool background image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+.hero::after { /* Dark overlay for text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 17, 23, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* --- Main Content & Car Grid --- */
+main.container {
+    padding-top: 3rem; /* Space below the hero section */
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.car-card {
+    background-color: #161b22; /* Darker card background */
+    border: 1px solid #30363d; /* Subtle border */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 170, 255, 0.1);
+    border-color: #00aaff; /* Highlight with a tech-blue on hover */
+}
+
+.car-card .card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #30363d;
+}
+
+.car-card .card-body {
+    padding: 1.5rem;
+}
+
+.car-card h4 {
+    color: #00aaff; /* Tech blue for titles */
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.car-card .card-subtitle {
+    color: #8b949e; /* Lighter grey for subtitle */
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* --- Modal & Footer --- */
+.modal-content {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+}
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+}
+
+/* --- NEW: Login Page Styles --- */
+.login-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../img/byd-factory.jpg'); /* Same bg as hero */
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+}
+
+.login-box {
+    background-color: rgba(22, 27, 34, 0.9); /* Translucent dark background */
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.login-logo img {
+    height: 50px;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-box .form-control {
+    background-color: #0d1117;
+    border-color: #30363d;
+    color: #c9d1d9;
+    padding: 0.75rem 1rem;
+}
+.login-box .form-control:focus {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    border-color: #00aaff;
+    box-shadow: none;
+}
+
+.login-box .btn-primary {
+    background-color: #00aaff;
+    border-color: #00aaff;
+    padding: 0.75rem;
+    font-weight: 700;
+}
+
+/* --- FIXED: Filter Controls Styling --- */
+.filter-controls-container {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.filter-controls-container .form-label {
+    font-weight: 500;
+    color: #c9d1d9;
+}
+
+.filter-controls-container .form-select {
+    /* This block fixes the appearance */
+    background-color: #0d1117;
+    border-color: #30363d;
+    color: #c9d1d9;
+    padding: 0.5rem 2.5rem 0.5rem 1rem; /* Adjust padding to make space for arrow */
+    -webkit-appearance: none; /* Removes default browser styling on Mac/iOS */
+    -moz-appearance: none; /* Removes default browser styling on Firefox */
+    appearance: none; /* Removes default browser styling on modern browsers */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23c9d1d9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+}
+
+.filter-controls-container .form-select:focus {
+    border-color: #00aaff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 170, 255, 0.25);
+}
+
+.filter-controls-container .btn-secondary {
+    background-color: #30363d;
+    border-color: #8b949e;
+    color: #c9d1d9;
+    width: 100%; /* Ensure button fills its column */
+}
+
+.filter-controls-container .btn-secondary:hover {
+    background-color: #484f58;
+}
+
+/* The heart icon on each card */
+.car-card {
+    position: relative; /* Needed for positioning the icon */
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #555; /* Default color for non-favorite */
+    background-color: rgba(13, 17, 23, 0.7); /* Dark semi-transparent background */
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    z-index: 5;
+}
+
+.favorite-icon:hover {
+    transform: scale(1.2);
+}
+
+.favorite-icon.is-favorite {
+    color: #e43f5a; /* Bright red/pink for favorited items */
+}
+
+/* The "My Favorites" button */
+.filter-controls-container .btn-info {
+    background-color: #00aaff;
+    border-color: #00aaff;
+    color: #fff;
+    width: 100%;
+}
+
+.filter-controls-container .btn-info:hover {
+    background-color: #0077b3;
+    border-color: #0077b3;
+}
+
+/* --- NEW: Style for Register button in header --- */
+#main-nav .btn-secondary {
+    background-color: transparent;
+    border-color: #00aaff;
+    color: #00aaff;
+}
+
+#main-nav .btn-secondary:hover {
+    background-color: #00aaff;
+    color: #fff;
+}
+
+/* Make car cards clickable */
+.car-card {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the new comments section in the modal */
+.comment-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-item p {
+    margin-top: 5px;
+    font-size: 0.95rem;
+}
+
+/* Style for the new delete button inside a comment */
+.delete-comment-btn {
+    /* Make the button very small and subtle */
+    padding: 0.1rem 0.4rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    /* This makes the button's icon clickable too */
+    pointer-events: all; 
+}
+.delete-comment-btn .fas {
+    /* Clicks on the icon itself were sometimes missed, this helps */
+    pointer-events: none;
+}
+
+/* =================================
+   Profile Page Styles - ENHANCED
+   ================================= */
+   .profile-page-wrapper {
+    padding-bottom: 40px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 1.5rem;
+}
+
+.profile-header .profile-icon {
+    font-size: 4rem;
+    color: #00aaff;
+}
+
+.profile-header h1 {
+    margin-bottom: 0;
+    color: #fff;
+    font-weight: 700;
+}
+
+.profile-section {
+    background-color: #161b22;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    height: 100%; /* Make cards in the same row equal height */
+}
+
+.profile-section h2 {
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    color: #c9d1d9;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.profile-section h2 .fas {
+    color: #00aaff;
+}
+
+.activity-list {
+    max-height: 350px; /* Limit height and add scroll for many comments */
+    overflow-y: auto;
+}
+
+#my-comments-list .comment-item {
+    background-color: #0d1117;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    margin-bottom: 15px;
+}
+
+#my-comments-list .comment-item:last-child {
+    margin-bottom: 0;
+}
+
+#my-comments-list .comment-item blockquote {
+    font-style: italic;
+    color: #c9d1d9;
+    border-left: 3px solid #00aaff;
+    padding-left: 15px;
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+#my-comments-list .comment-item p,
+#my-comments-list .comment-item small {
+    color: #8b949e;
+}
+
+/* =================================
+   NEW: Comparison Feature Styles
+   ================================= */
+   .compare-checkbox-container {
+    padding: 0.75rem 1.5rem;
+    border-top: 1px solid #30363d;
+    background-color: #161b22;
+}
+
+.compare-checkbox-container label {
+    cursor: pointer;
+    color: #8b949e;
+    font-weight: 500;
+}
+
+.compare-checkbox-container input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #00aaff;
+}
+
+/* Compare Bar */
+#compare-bar-container {
+    position: fixed;
+    bottom: -100px; /* Start hidden */
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: rgba(22, 27, 34, 0.95);
+    border-top: 1px solid #30363d;
+    z-index: 1000;
+    transition: bottom 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+#compare-bar-container.visible {
+    bottom: 0; /* Slide in */
+}
+
+.compare-bar-items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+.compare-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0d1117;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+}
+
+.compare-bar-item img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.compare-bar-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.compare-bar-placeholder {
+    color: #8b949e;
+    font-style: italic;
+}
+
+#compare-bar-container .btn.disabled {
+    pointer-events: none;
+    background-color: #30363d;
+    border-color: #30363d;
+}
+
+/* Comparison Page Table */
+.comparison-table {
+    width: 100%;
+    border-collapse: separate; /* Allows for space between cells and border-radius */
+    border-spacing: 0;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    overflow: hidden; /* Important for the border-radius to work */
+    margin-top: 2rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1.25rem;
+    text-align: center;
+    border-bottom: 1px solid #30363d;
+    vertical-align: middle;
+}
+
+/* Remove bottom border from the last row for a cleaner look */
+.comparison-table tbody tr:last-child th,
+.comparison-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Style the table headers (Car Names) */
+.comparison-table thead th {
+    background-color: #0d1117;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00aaff; /* Tech blue accent */
+    border-left: 1px solid #30363d;
+}
+
+/* First header cell ("Feature") */
+.comparison-table thead th:first-child {
+    color: #c9d1d9;
+    background-color: transparent;
+    border-left: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Style the feature labels in the body (Image, Type, etc.) */
+.comparison-table tbody th {
+    font-weight: 500;
+    color: #c9d1d9;
+    text-align: left;
+    background-color: rgba(0,170,255,0.05); /* Very subtle blue tint */
+    border-right: 1px solid #30363d;
+    width: 20%; /* Give feature column a consistent width */
+}
+
+/* Style the data cells */
+.comparison-table td {
+    border-left: 1px solid #30363d;
+}
+.comparison-table tbody tr:first-child td { /* The image row */
+     padding: 1rem;
+}
+
+.comparison-table .compare-car-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 8px;
+    background: #0d1117;
+    padding: 5px;
+    border: 1px solid #30363d;
+}
+
+/* New styles for richer spec data */
+.comparison-table .spec-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.comparison-table .spec-label {
+    font-size: 0.9rem;
+    color: #8b949e;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Style the description to be left-aligned for readability */
+.comparison-table td p {
+    text-align: left;
+    color: #c9d1d9;
+    font-size: 0.95rem;
+}
+
+/* ADD THIS to improve the clear button */
+#clear-comparison-btn {
+    background-color: #d73a49; /* GitHub's danger red */
+    border-color: #d73a49;
+    font-weight: 500;
+}
+
+#clear-comparison-btn:hover {
+    background-color: #b02a37;
+    border-color: #b02a37;
+}
+
+.comparison-table .compare-car-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00aaff;
+}
+
+/* =================================
+   NEW: News & Article Page Styles
+   ================================= */
+
+/* News Grid on news.html */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.news-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 170, 255, 0.1);
+    border-color: #00aaff;
+}
+
+.news-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows the button to be pushed to the bottom */
+}
+
+.news-card-meta {
+    color: #8b949e;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.news-card-title {
+    color: #c9d1d9;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.news-card-content {
+    color: #8b949e;
+    flex-grow: 1; /* Takes up available space */
+    margin-bottom: 1.5rem;
+}
+
+/* Single Article Page (article.html) */
+.article-image {
+    max-height: 450px;
+    width: 100%;
+    object-fit: cover;
+}
+.article-meta {
+    color: #8b949e;
+}
+.article-meta strong {
+    color: #c9d1d9;
+}
+.article-body {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #c9d1d9;
+}
+.article-body p {
+    margin-bottom: 1.5rem;
+}
